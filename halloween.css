@@ -1,0 +1,237 @@
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #05030c;
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-header {
+  text-align: center;
+  padding: 1rem;
+}
+
+.page-header h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.2rem;
+}
+
+.page-header p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* the drawing area */
+.scene {
+  position: relative;
+  width: min(90vw, 500px);
+  height: calc(min(90vw, 500px) * 0.6); /* keeps it kind of 5:3 */
+  background: linear-gradient(#151938, #2a0830);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  margin: 0 1rem 1.5rem;
+}
+
+/* moon */
+.moon {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 70px;
+  height: 70px;
+  background: #f8f2c5;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(248, 242, 197, 0.8);
+}
+
+/* ground */
+.ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 35%;
+  background: #050509;
+  border-top-left-radius: 40% 60%;
+  border-top-right-radius: 40% 60%;
+}
+
+/* house */
+.house {
+  position: absolute;
+  bottom: 28%;
+  left: 55%;
+  transform: translateX(-50%);
+}
+
+.house-body {
+  width: 80px;
+  height: 90px;
+  background: #14121f;
+  position: relative;
+}
+
+/* roof using simple borders */
+.roof {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 40px solid #14121f;
+}
+
+.window {
+  width: 22px;
+  height: 30px;
+  background: #f9e37a;
+  position: absolute;
+  top: 18px;
+  left: 10px;
+  box-shadow: 0 0 8px rgba(249, 227, 122, 0.8);
+}
+
+.door {
+  width: 24px;
+  height: 40px;
+  background: #09080f;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+
+/* ghost */
+.ghost {
+  position: absolute;
+  top: 22%;
+  right: 10%;
+  width: 60px;
+  height: 80px;
+  background: #ffffff;
+  border-radius: 40px 40px 30px 30px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  animation: float 3s ease-in-out infinite;
+}
+
+/* simple rounded bottom */
+.ghost::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.ghost-eye {
+  width: 7px;
+  height: 12px;
+  background: #222;
+  border-radius: 50%;
+  position: absolute;
+  top: 25px;
+}
+
+.eye-left {
+  left: 18px;
+}
+
+.eye-right {
+  right: 18px;
+}
+
+.ghost-mouth {
+  width: 24px;
+  height: 10px;
+  border-radius: 0 0 15px 15px;
+  background: #222;
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* floating animation for ghost */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* pumpkin */
+.pumpkin {
+  position: absolute;
+  bottom: 18%;
+  left: 15%;
+  width: 70px;
+  height: 50px;
+  background: #ff8a2a;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(255, 138, 42, 0.7);
+}
+
+/* simple stem */
+.pumpkin::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 12px;
+  background: #4b6b2a;
+  border-radius: 3px;
+}
+
+.pumpkin-face {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.pumpkin-eye {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #220b00;
+  transform: rotate(45deg);
+}
+
+.pumpkin-eye.left {
+  margin-right: 10px;
+}
+
+.pumpkin-eye.right {
+  margin-left: 10px;
+}
+
+.pumpkin-mouth {
+  display: block;
+  margin: 8px auto 0;
+  width: 32px;
+  height: 10px;
+  background: #220b00;
+  border-radius: 0 0 16px 16px;
+}
+
+/* text under the scene */
+.description {
+  max-width: 600px;
+  padding: 0 1rem 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
